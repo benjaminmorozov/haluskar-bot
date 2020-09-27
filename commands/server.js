@@ -11,7 +11,7 @@ exports.run = (client, message) => {
         description: `**${client.config.description}**`,
         fields: [{
             name: "Server Owner:",
-            value: `${message.guild.member(guild.owner)} ? guild.owner.toString() : guild.owner.user.tag`,
+            value: `${message.guild.member(message.guild.owner) ? message.guild.owner.toString() : message.guild.owner.user.tag}`,
             inline: "true"
             },
             {
