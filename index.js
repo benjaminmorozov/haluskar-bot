@@ -20,7 +20,7 @@ client.words = words;
 
 client.on('ready', () => {
   console.log(`Successfully loaded and logged in as ${client.user.tag}.`);
-  client.user.setPresence({ game: { name: 'Welcome to Quido\'s club ️❤️', type: 0 } });
+  client.user.setPresence({ game: { name: 'Welcome to Bryndzove halusky ️❤️', type: 0 } });
 });
 
 function makeid(length) {
@@ -51,7 +51,7 @@ client.on('ready', () => {
   });
 });
 
-
+/*
 client.on('guildMemberAdd', member => {
   global.verifymember = member;
   // Get the log channel (change to your liking)
@@ -315,7 +315,7 @@ client.on('guildMemberUpdate', (oldMember, newMember) => {
     }
 
 });
-
+*/
 
 fs.readdir("./events/", (err, files) => {
   if (err) return console.error(err);

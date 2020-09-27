@@ -29,8 +29,8 @@ module.exports = (client, message) => {
       return;
     };
 	
-	if (talkedRecently.has(message.author.id))
-		return message.reply(`Slow down! 😆`);
+	/* if (talkedRecently.has(message.author.id))
+		return message.reply(`Slow down! 😆`); */
 	
 	// Adds the user to the set so that they can't talk for 2.5 seconds
 	talkedRecently.add(message.author.id);
