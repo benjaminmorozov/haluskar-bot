@@ -8,7 +8,7 @@ exports.run = (client, message) => {
         thumbnail: {
             "url": message.guild.iconURL
         },
-        description: `**${client.config.description}**`,,
+        description: `**${client.config.description}**`,
         fields: [{
             name: "Server Owner:",
             value: "<@298528389940379648>",
