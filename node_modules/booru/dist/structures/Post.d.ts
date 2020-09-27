@@ -1,0 +1,30 @@
+﻿import Booru from '../boorus/Booru';
+export default class Post {
+    booru: Booru;
+    fileUrl: string | null;
+    height: number;
+    width: number;
+    sampleUrl: string | null;
+    sampleHeight: number | null;
+    sampleWidth: number | null;
+    previewUrl: string | null;
+    previewHeight: number | null;
+    previewWidth: number | null;
+    id: string;
+    tags: string[];
+    score: number;
+    source?: string;
+    rating: string;
+    createdAt?: Date | null;
+    protected data: any;
+    constructor(data: any, booru: Booru);
+    readonly file_url: string | null;
+    readonly sample_url: string | null;
+    readonly sample_height: number | null;
+    readonly sample_width: number | null;
+    readonly preview_url: string | null;
+    readonly preview_height: number | null;
+    readonly preview_width: number | null;
+    readonly postView: string;
+    readonly common: this;
+}
