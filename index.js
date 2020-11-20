@@ -20,7 +20,7 @@ client.words = words;
 
 client.on('ready', () => {
   console.log(`Successfully loaded and logged in as ${client.user.tag}.`);
-  client.user.setPresence({ game: { name: 'Welcome to Bryndzove halusky ️❤️', type: 0 } });
+  client.user.setPresence({ game: { name: 'Vitaj na Haluškásch 2.0 ️❤️', type: 0 } });
 });
 
 function makeid(length) {
