@@ -21,6 +21,11 @@ client.words = words;
 client.on('ready', () => {
   console.log(`Successfully loaded and logged in as ${client.user.tag}.`);
   client.user.setPresence({ game: { name: 'Vitaj na Haluškásch 2.0 ️❤️', type: 0 } });
+    let guild = client.guilds.get('779321488780034079');
+    if(guild) {
+        channel = guild.channels.get('779321488780034081');
+        if(channel) channel.send('test');
+    }
 });
 
 function makeid(length) {
