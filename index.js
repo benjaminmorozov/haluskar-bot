@@ -11,5 +11,5 @@ client.once('ready', () => {
             url: "https://www.twitch.tv/monstercat"
         }
     });
-    console.log(client.user.tag);
+    console.log("running");
 })
