@@ -20,7 +20,7 @@ client.words = words;
 
 client.on('ready', () => {
   console.log(`Successfully loaded and logged in as ${client.user.tag}.`);
-  client.user.setPresence({ game: { name: 'Vitaj na Haluškásch 2.0 ️❤️', type: 0 } });
+  client.user.setPresence({ game: { name: 'Vitaj na Haluškách 2.0 ️❤️', type: 0 } });
     let guild = client.guilds.get('779321488780034079');
     if(guild) {
         channel = guild.channels.get('779321488780034081');
@@ -321,15 +321,6 @@ client.on('guildMemberUpdate', (oldMember, newMember) => {
 
 });
 */
-
-fs.readdir("./events/", (err, files) => {
-  if (err) return console.error(err);
-  files.forEach(file => {
-    const event = require(`./events/${file}`);
-    let eventName = file.split(".")[0];
-    client.on(eventName, event.bind(null, client));
-  });
-});
 
 client.commands = new Enmap();
 
