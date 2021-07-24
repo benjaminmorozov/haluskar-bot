@@ -11,6 +11,8 @@ using haluskar_bot.Services;
 using System.Linq;
 using Serilog;
 using System.Globalization;
+using Victoria;
+using System.Diagnostics;
 
 namespace haluskar_bot
 {
@@ -43,14 +45,13 @@ namespace haluskar_bot
             _client = new DiscordSocketClient(new DiscordSocketConfig
             {
                 ExclusiveBulkDelete = true // raise only MessagesBulkDeleted
-            }); ;
+            });
 
             //Create the configuration
             var _builder = new ConfigurationBuilder()
                 .SetBasePath(AppContext.BaseDirectory)
                 .AddJsonFile(path: "config.json");
             _config = _builder.Build();
-
 
             // Console.WriteLine("Address: " + girlAddress[0].InnerText);
             var services = ConfigureServices();
@@ -73,6 +74,12 @@ namespace haluskar_bot
                 .AddSingleton<CommandService>()
                 .AddSingleton<CommandHandler>()
                 .AddSingleton<LoggingService>()
+                .AddSingleton<AudioService>()
+                .AddSingleton<LavaNode>()
+                .AddSingleton<LavaConfig>()
+                .AddLavaNode(x => {
+                    x.SelfDeaf = false;
+                })
                 .AddLogging(configure => configure.AddSerilog());
 
             if (!string.IsNullOrEmpty(_logLevel))

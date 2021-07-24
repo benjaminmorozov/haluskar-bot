@@ -53,3 +53,7 @@ C:\Users\ssosta\source\repos\haluskar-bot\haluskar-bot\bin\Debug\netcoreapp3.1\M
 C:\Users\ssosta\source\repos\haluskar-bot\haluskar-bot\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Physical.dll
 C:\Users\ssosta\source\repos\haluskar-bot\haluskar-bot\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileSystemGlobbing.dll
 C:\Users\ssosta\source\repos\haluskar-bot\haluskar-bot\bin\Debug\netcoreapp3.1\config.json
+C:\Users\ssosta\source\repos\haluskar-bot\haluskar-bot\bin\Debug\netcoreapp3.1\Victoria.dll
+C:\Users\ssosta\source\repos\haluskar-bot\haluskar-bot\bin\Debug\netcoreapp3.1\application.yml
+C:\Users\ssosta\source\repos\haluskar-bot\haluskar-bot\bin\Debug\netcoreapp3.1\Lavalink.jar
+C:\Users\ssosta\source\repos\haluskar-bot\haluskar-bot\bin\Debug\netcoreapp3.1\opus.dll
