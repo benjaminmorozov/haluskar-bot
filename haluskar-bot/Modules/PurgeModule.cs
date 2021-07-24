@@ -12,7 +12,7 @@ namespace haluskar_bot.Modules
 {
     public class PurgeModule : ModuleBase<SocketCommandContext>
     {
-        [Command("purge")]
+        [Command("purge"), Alias("rm")]
         [RequireUserPermission(GuildPermission.Administrator)]
         public async Task Purge(int amount)
         {

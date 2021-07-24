@@ -11,7 +11,7 @@ namespace haluskar_bot.Modules
 {
     public class LinkyModule : ModuleBase<SocketCommandContext>
     {
-        [Command("linky")]
+        [Command("linky"), Alias("links")]
         public Task Linky(){
             // => ReplyAsync(
             // $"username {Context.Client.CurrentUser.Username} test\n");

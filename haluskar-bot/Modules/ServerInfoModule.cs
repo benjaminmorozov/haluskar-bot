@@ -11,7 +11,7 @@ namespace haluskar_bot.Modules
 {
     public class ServerInfoModule : ModuleBase<SocketCommandContext>
     {
-        [Command("serverinfo")]
+        [Command("serverinfo"), Alias("si", "server", "aboutserver")]
         public Task ServerInfo(){
             // => ReplyAsync(
             // $"username {Context.Client.CurrentUser.Username} test\n");

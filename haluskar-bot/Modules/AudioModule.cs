@@ -32,7 +32,7 @@ namespace haluskar_bot.Modules {
             await _lavaNode.JoinAsync(voiceChannel, textChannel: (ITextChannel)Context.Channel);
         }
 
-        [Command("Leave")]
+        [Command("Leave"), Alias("exit")]
         public async Task LeaveAsync() {
             if (!_lavaNode.TryGetPlayer(Context.Guild, out var player)) {
                 await ReplyAsync("Haluškár nie je pripojený k žiadnemu zvukovému kanálu!");
@@ -54,11 +54,10 @@ namespace haluskar_bot.Modules {
             }
         }
 
-        [Command("Play", RunMode = RunMode.Async)]
-        public async Task PlayAsync([Remainder] string query)
+        public async Task GetPlayer()
         {
             _player = _lavaNode.GetPlayer(Context.Guild);
-            if(_player == null)
+            if (_player == null)
             {
                 var user = (SocketGuildUser)Context.User;
                 var voiceChannel = user.VoiceChannel;
@@ -66,7 +65,12 @@ namespace haluskar_bot.Modules {
                 await _lavaNode.ConnectAsync();
                 await _lavaNode.JoinAsync(voiceChannel, textChannel: (ITextChannel)Context.Channel);
             }
+        }
 
+        [Command("Play", RunMode = RunMode.Async)]
+        public async Task PlayAsync([Remainder] string query)
+        {
+            await GetPlayer();
             var search = await _lavaNode.SearchYouTubeAsync(query);
             if (search.LoadStatus == LoadStatus.NoMatches ||
                 search.LoadStatus == LoadStatus.LoadFailed)

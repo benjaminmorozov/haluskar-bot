@@ -11,7 +11,7 @@ namespace haluskar_bot.Modules
 {
     public class HelpModule : ModuleBase<SocketCommandContext>
     {
-        [Command("help")]
+        [Command("help"), Alias("commands", "?")]
         public Task Help(){
             // => ReplyAsync(
             // $"username {Context.Client.CurrentUser.Username} test\n");
@@ -43,6 +43,12 @@ namespace haluskar_bot.Modules
             });
             builder.AddField(x =>
             {
+                x.Name = CommandHandler._prefix + "nb";
+                x.Value = "- zobrazí vypracovaný zoznam informácií o školských notebookoch.";
+                x.IsInline = false;
+            });
+            builder.AddField(x =>
+            {
                 x.Name = CommandHandler._prefix + "purge `[number of messages]`";
                 x.Value = "⚙️ - vymaže zadaný počet správ.";
                 x.IsInline = false;
@@ -67,12 +73,13 @@ namespace haluskar_bot.Modules
             });
             builder.AddField(x =>
             {
-                x.Name = CommandHandler._prefix + "zoznam";
+                x.Name = CommandHandler._prefix + "ziaci";
                 x.Value = "- zobrazí zoznam všetkých žiakov v triede.";
                 x.IsInline = false;
             })
                 .WithFooter("♥ Halušky 2.0 ♥", Context.Guild.IconUrl)
                 .WithAuthor(Context.Client.CurrentUser)
+                .WithThumbnailUrl("https://media.discordapp.net/attachments/752213665322893382/829337556885045299/sandro.gif")
                 .WithCurrentTimestamp();
             //Use await if you're using an async Task to be completed.
             return ReplyAsync("", false, builder.Build());

@@ -11,7 +11,7 @@ namespace haluskar_bot.Modules
 {
     public class ZoznamUcitelovModule : ModuleBase<SocketCommandContext>
     {
-        [Command("ucitelia")]
+        [Command("ucitelia"), Alias("zu", "zoznamu", "zoznamucitelov", "ucitel")]
         public Task Zoznam()
         {
             var builder = new EmbedBuilder()

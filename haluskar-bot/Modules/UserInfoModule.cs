@@ -13,7 +13,7 @@ namespace haluskar_bot.Modules
 {
     public class UserInfoModule : ModuleBase<SocketCommandContext>
     {
-        [Command("userinfo")]
+        [Command("userinfo"), Alias("user", "ui")]
         public Task UserInfo(IUser user = null)
         {
             string url;
