@@ -177,6 +177,33 @@ namespace haluskar_bot.Modules {
             }
         }
 
+        [Command("ForceSKip"), Alias("fs")]
+        public async Task FSAsync()
+        {
+            if (!_lavaNode.TryGetPlayer(Context.Guild, out var player))
+            {
+                await ReplyAsync("Haluškár nie je pripojený k žiadnemu zvukovému kanálu!");
+                return;
+            }
+
+            if (player.PlayerState != PlayerState.Playing)
+            {
+                await ReplyAsync("Nie je možné preskočiť niečo, čo nehrá!");
+                return;
+            }
+
+            try
+            {
+                var oldTrack = player.Track;
+                var currenTrack = await player.SkipAsync();
+                await ReplyAsync($"Preskočené: {oldTrack.Title}\nPráve hrá {currenTrack.Title}");
+            }
+            catch (Exception exception)
+            {
+                await ReplyAsync(exception.Message);
+            }
+        }
+
         [Command("Seek")]
         public async Task SeekAsync(TimeSpan timeSpan) {
             if (!_lavaNode.TryGetPlayer(Context.Guild, out var player)) {
