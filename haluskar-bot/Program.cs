@@ -11,6 +11,7 @@ using haluskar_bot.Services;
 using System.Linq;
 using Serilog;
 using System.Globalization;
+using Victoria;
 
 namespace haluskar_bot
 {
@@ -73,6 +74,7 @@ namespace haluskar_bot
                 .AddSingleton<CommandService>()
                 .AddSingleton<CommandHandler>()
                 .AddSingleton<LoggingService>()
+                .AddSingleton<AudioService>()
                 .AddLogging(configure => configure.AddSerilog());
 
             if (!string.IsNullOrEmpty(_logLevel))

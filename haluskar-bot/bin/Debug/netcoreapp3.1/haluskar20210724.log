@@ -1,3 +1,76 @@
 2021-07-24 04:46:09.397 +02:00 [INF] Discord.Net v2.2.0 (API v6)
 2021-07-24 04:46:10.874 +02:00 [INF] Connecting
 2021-07-24 04:46:11.792 +02:00 [INF] Connected
+2021-07-24 17:54:37.171 +02:00 [INF] Discord.Net v2.4.0 (API v6)
+2021-07-24 17:54:39.251 +02:00 [INF] Connecting
+2021-07-24 17:54:40.653 +02:00 [INF] Connected
+2021-07-24 17:55:18.341 +02:00 [INF] Discord.Net v2.4.0 (API v6)
+2021-07-24 17:55:19.386 +02:00 [INF] Connecting
+2021-07-24 17:55:20.407 +02:00 [INF] Connected
+2021-07-24 17:55:20.917 +02:00 [INF] Logged in as Haluškár#6046
+2021-07-24 17:55:20.920 +02:00 [INF] We are on 1 server/s
+2021-07-24 17:55:20.921 +02:00 [INF] Ready
+2021-07-24 17:55:24.835 +02:00 [INF] Command h!join executed for Andromatic#6161 on ♥ Halušky 2.0 ♥
+2021-07-24 17:55:50.789 +02:00 [INF] Command h!join executed for Andromatic#6161 on ♥ Halušky 2.0 ♥
+2021-07-24 17:55:50.938 +02:00 [WRN] System.NullReferenceException: Object reference not set to an instance of an object.
+   at Victoria.LavaSocket.SendAsync[T](T value)
+   at Victoria.LavaNode`1.OnVoiceServerUpdatedAsync(SocketVoiceServer voiceServer)
+   at Discord.EventExtensions.InvokeAsync[T](AsyncEvent`1 eventHandler, T arg)
+   at Discord.WebSocket.DiscordSocketClient.TimeoutWrap(String name, Func`1 action)
+2021-07-24 17:56:14.363 +02:00 [INF] Command h!join executed for Andromatic#6161 on ♥ Halušky 2.0 ♥
+2021-07-24 17:57:59.887 +02:00 [INF] Discord.Net v2.4.0 (API v6)
+2021-07-24 17:58:00.929 +02:00 [INF] Connecting
+2021-07-24 17:58:01.908 +02:00 [INF] Connected
+2021-07-24 17:58:02.419 +02:00 [INF] Logged in as Haluškár#6046
+2021-07-24 17:58:02.421 +02:00 [INF] We are on 1 server/s
+2021-07-24 17:58:02.421 +02:00 [INF] Ready
+2021-07-24 17:58:05.658 +02:00 [INF] Command h!leave executed for Andromatic#6161 on ♥ Halušky 2.0 ♥
+2021-07-24 17:58:21.663 +02:00 [INF] Command h!leave executed for Andromatic#6161 on ♥ Halušky 2.0 ♥
+2021-07-24 17:58:50.280 +02:00 [INF] Discord.Net v2.4.0 (API v6)
+2021-07-24 17:58:51.319 +02:00 [INF] Connecting
+2021-07-24 17:58:52.151 +02:00 [INF] Connected
+2021-07-24 17:58:52.671 +02:00 [INF] Logged in as Haluškár#6046
+2021-07-24 17:58:52.674 +02:00 [INF] We are on 1 server/s
+2021-07-24 17:58:52.675 +02:00 [INF] Ready
+2021-07-24 17:58:54.186 +02:00 [INF] Command h!leave executed for Andromatic#6161 on ♥ Halušky 2.0 ♥
+2021-07-24 17:59:07.352 +02:00 [INF] Command h!join executed for Andromatic#6161 on ♥ Halušky 2.0 ♥
+2021-07-24 17:59:07.398 +02:00 [WRN] System.NullReferenceException: Object reference not set to an instance of an object.
+   at Victoria.LavaSocket.SendAsync[T](T value)
+   at Victoria.LavaNode`1.OnVoiceServerUpdatedAsync(SocketVoiceServer voiceServer)
+   at Discord.EventExtensions.InvokeAsync[T](AsyncEvent`1 eventHandler, T arg)
+   at Discord.WebSocket.DiscordSocketClient.TimeoutWrap(String name, Func`1 action)
+2021-07-24 17:59:09.797 +02:00 [INF] Command h!leave executed for Andromatic#6161 on ♥ Halušky 2.0 ♥
+2021-07-24 18:14:38.890 +02:00 [INF] Discord.Net v2.4.0 (API v6)
+2021-07-24 18:14:40.054 +02:00 [INF] Connecting
+2021-07-24 18:14:41.119 +02:00 [INF] Connected
+2021-07-24 18:14:41.633 +02:00 [INF] Logged in as Haluškár#6046
+2021-07-24 18:14:41.634 +02:00 [INF] We are on 1 server/s
+2021-07-24 18:14:41.635 +02:00 [INF] Ready
+2021-07-24 18:14:49.342 +02:00 [ERR] Discord.Commands.CommandException: Error occurred executing "join" for Andromatic#6161 in ♥ Halušky 2.0 ♥/𝓟𝓞𝓒𝓞𝓛𝓞𝓒𝓞🎶.
+ ---> System.DllNotFoundException: Unable to load DLL 'opus' or one of its dependencies: The specified module could not be found. (0x8007007E)
+   at Discord.Audio.OpusDecoder.CreateDecoder(Int32 Fs, Int32 channels, OpusError& error)
+   at Discord.Audio.OpusDecoder..ctor()
+   at Discord.Audio.Streams.OpusDecodeStream..ctor(AudioStream next)
+   at Discord.Audio.AudioClient.CreateInputStreamAsync(UInt64 userId)
+   at Discord.WebSocket.SocketGuild.RepopulateAudioStreamsAsync()
+   at Discord.WebSocket.SocketGuild.FinishConnectAudio(String url, String token)
+   at Discord.WebSocket.SocketGuild.ConnectAudioAsync(UInt64 channelId, Boolean selfDeaf, Boolean selfMute, Boolean external)
+   at Discord.WebSocket.SocketGuild.ConnectAudioAsync(UInt64 channelId, Boolean selfDeaf, Boolean selfMute, Boolean external)
+   at Discord.WebSocket.SocketVoiceChannel.ConnectAsync(Boolean selfDeaf, Boolean selfMute, Boolean external)
+   at AudioService.JoinAudio(IGuild guild, IVoiceChannel target) in C:\Users\ssosta\source\repos\haluskar-bot\haluskar-bot\Services\AudioService.cs:line 23
+   at AudioModule.JoinCmd() in C:\Users\ssosta\source\repos\haluskar-bot\haluskar-bot\Modules\AudioModule.cs:line 22
+   at Discord.Commands.ModuleClassBuilder.<>c__DisplayClass6_0.<<BuildCommand>g__ExecuteCallback|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Discord.Commands.CommandInfo.ExecuteInternalAsync(ICommandContext context, Object[] args, IServiceProvider services)
+   --- End of inner exception stack trace ---
+2021-07-24 18:16:49.124 +02:00 [INF] Discord.Net v2.4.0 (API v6)
+2021-07-24 18:16:50.276 +02:00 [INF] Connecting
+2021-07-24 18:16:51.383 +02:00 [INF] Connected
+2021-07-24 18:16:51.913 +02:00 [INF] Logged in as Haluškár#6046
+2021-07-24 18:16:51.920 +02:00 [INF] We are on 1 server/s
+2021-07-24 18:16:51.921 +02:00 [INF] Ready
+2021-07-24 18:16:57.382 +02:00 [INF] Connecting
+2021-07-24 18:16:57.700 +02:00 [WRN] Unknown OpCode (Hello)
+2021-07-24 18:16:57.902 +02:00 [INF] Connected
+2021-07-24 18:16:57.907 +02:00 [INF] Command h!join executed for Andromatic#6161 on ♥ Halušky 2.0 ♥
+2021-07-24 18:18:04.808 +02:00 [INF] Command h!play handclap executed for Andromatic#6161 on ♥ Halušky 2.0 ♥
