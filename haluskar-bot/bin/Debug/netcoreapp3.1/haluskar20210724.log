@@ -383,3 +383,25 @@
 2021-07-24 20:12:14.754 +02:00 [INF] Lavalink has been up for 00:00:00.1189930.
 2021-07-24 20:13:14.847 +02:00 [INF] Lavalink has been up for 00:00:00.1249930.
 2021-07-24 20:14:14.744 +02:00 [INF] Lavalink has been up for 00:00:00.1309921.
+2021-07-24 18:56:07.228 +00:00 [INF] Discord.Net v2.4.0 (API v6)
+2021-07-24 18:56:09.588 +00:00 [INF] Connecting
+2021-07-24 18:56:10.333 +00:00 [INF] Connected
+2021-07-24 18:56:10.838 +00:00 [INF] Logged in as Haluškár#6046
+2021-07-24 18:56:10.841 +00:00 [INF] We are on 1 server/s
+2021-07-24 18:56:10.842 +00:00 [INF] Ready
+2021-07-24 19:00:31.937 +00:00 [INF] Discord.Net v2.4.0 (API v6)
+2021-07-24 19:00:33.409 +00:00 [INF] Connecting
+2021-07-24 19:00:34.371 +00:00 [INF] Connected
+2021-07-24 19:00:34.750 +00:00 [INF] Logged in as Haluškár#6046
+2021-07-24 19:00:34.773 +00:00 [INF] We are on 1 server/s
+2021-07-24 19:00:34.773 +00:00 [INF] Ready
+2021-07-24 19:00:38.482 +00:00 [ERR] Discord.Commands.CommandException: Error occurred executing "Play" for Andromatic#6161 in ♥ Halušky 2.0 ♥/𝓟𝓞𝓒𝓞𝓛𝓞𝓒𝓞🎶.
+ ---> System.Collections.Generic.KeyNotFoundException: The given key '751501391327133767' was not present in the dictionary.
+   at System.Collections.Concurrent.ConcurrentDictionary`2.ThrowKeyNotFoundException(Object key)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.get_Item(TKey key)
+   at Victoria.LavaNode`1.GetPlayer(IGuild guild)
+   at haluskar_bot.Modules.AudioModule.PlayAsync(String query) in C:\Users\ssosta\source\repos\haluskar-bot\haluskar-bot\Modules\AudioModule.cs:line 60
+   at Discord.Commands.ModuleClassBuilder.<>c__DisplayClass6_0.<<BuildCommand>g__ExecuteCallback|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Discord.Commands.CommandInfo.ExecuteInternalAsync(ICommandContext context, Object[] args, IServiceProvider services)
+   --- End of inner exception stack trace ---
