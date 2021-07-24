@@ -1,0 +1,4 @@
+C:\Users\ssosta\source\repos\haluskar-bot\haluskar-bot\obj\Debug\netcoreapp3.0\haluskar-bot.csprojAssemblyReference.cache
+C:\Users\ssosta\source\repos\haluskar-bot\haluskar-bot\obj\Debug\netcoreapp3.0\haluskar-bot.AssemblyInfoInputs.cache
+C:\Users\ssosta\source\repos\haluskar-bot\haluskar-bot\obj\Debug\netcoreapp3.0\haluskar-bot.AssemblyInfo.cs
+C:\Users\ssosta\source\repos\haluskar-bot\haluskar-bot\obj\Debug\netcoreapp3.0\haluskar-bot.csproj.CoreCompileInputs.cache
