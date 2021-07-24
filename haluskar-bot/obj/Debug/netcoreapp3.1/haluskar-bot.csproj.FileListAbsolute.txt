@@ -21,7 +21,6 @@ C:\Users\ssosta\source\repos\haluskar-bot\haluskar-bot\obj\Debug\netcoreapp3.1\h
 C:\Users\ssosta\source\repos\haluskar-bot\haluskar-bot\obj\Debug\netcoreapp3.1\haluskar-bot.dll
 C:\Users\ssosta\source\repos\haluskar-bot\haluskar-bot\obj\Debug\netcoreapp3.1\haluskar-bot.pdb
 C:\Users\ssosta\source\repos\haluskar-bot\haluskar-bot\obj\Debug\netcoreapp3.1\haluskar-bot.genruntimeconfig.cache
-C:\Users\ssosta\source\repos\haluskar-bot\haluskar-bot\bin\Debug\netcoreapp3.1\haluskar.xml
 C:\Users\ssosta\source\repos\haluskar-bot\haluskar-bot\obj\Debug\netcoreapp3.1\haluskar-bot.csproj.AssemblyReference.cache
 C:\Users\ssosta\source\repos\haluskar-bot\haluskar-bot\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
 C:\Users\ssosta\source\repos\haluskar-bot\haluskar-bot\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
