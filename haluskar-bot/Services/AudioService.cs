@@ -1,68 +1,136 @@
-﻿using System.Collections.Concurrent;
-using System.Diagnostics;
-using System.IO;
+﻿using System;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
-using Discord;
-using Discord.Audio;
+using Microsoft.Extensions.Logging;
+using Victoria;
+using Victoria.EventArgs;
 
-public class AudioService
+namespace haluskar_bot.Services
 {
-    private readonly ConcurrentDictionary<ulong, IAudioClient> ConnectedChannels = new ConcurrentDictionary<ulong, IAudioClient>();
-
-    public async Task JoinAudio(IGuild guild, IVoiceChannel target)
+    public sealed class AudioService
     {
-        if (ConnectedChannels.TryGetValue(guild.Id, out _))
+        private readonly LavaNode _lavaNode;
+        private readonly ILogger _logger;
+        public readonly HashSet<ulong> VoteQueue;
+        private readonly ConcurrentDictionary<ulong, CancellationTokenSource> _disconnectTokens;
+
+        public AudioService(LavaNode lavaNode, ILoggerFactory loggerFactory)
         {
-            return;
-        }
-        if (target.Guild.Id != guild.Id)
-        {
-            return;
+            _lavaNode = lavaNode;
+            _logger = loggerFactory.CreateLogger<LavaNode>();
+            _disconnectTokens = new ConcurrentDictionary<ulong, CancellationTokenSource>();
+
+            _lavaNode.OnPlayerUpdated += OnPlayerUpdated;
+            _lavaNode.OnStatsReceived += OnStatsReceived;
+            _lavaNode.OnTrackEnded += OnTrackEnded;
+            _lavaNode.OnTrackStarted += OnTrackStarted;
+            _lavaNode.OnTrackException += OnTrackException;
+            _lavaNode.OnTrackStuck += OnTrackStuck;
+            _lavaNode.OnWebSocketClosed += OnWebSocketClosed;
+
+            VoteQueue = new HashSet<ulong>();
         }
 
-        var audioClient = await target.ConnectAsync();
-
-        if (ConnectedChannels.TryAdd(guild.Id, audioClient))
+        private Task OnPlayerUpdated(PlayerUpdateEventArgs arg)
         {
-            //await Log(LogSeverity.Info, $"Connected to voice on {guild.Name}.");
+            _logger.LogInformation($"Track update received for {arg.Track.Title}: {arg.Position}");
+            return Task.CompletedTask;
         }
-    }
 
-    public async Task LeaveAudio(IGuild guild)
-    {
-        if (ConnectedChannels.TryRemove(guild.Id, out IAudioClient client))
+        private Task OnStatsReceived(StatsEventArgs arg)
         {
-            await client.StopAsync();
-            //await Log(LogSeverity.Info, $"Disconnected from voice on {guild.Name}.");
+            _logger.LogInformation($"Lavalink has been up for {arg.Uptime}.");
+            return Task.CompletedTask;
         }
-    }
 
-    public async Task SendAudioAsync(IGuild guild, IMessageChannel channel, string path)
-    {
-        // Your task: Get a full path to the file if the value of 'path' is only a filename.
-        if (!File.Exists(path))
+        private async Task OnTrackStarted(TrackStartEventArgs arg)
         {
-            await channel.SendMessageAsync("File does not exist.");
-            return;
-        }
-        if (ConnectedChannels.TryGetValue(guild.Id, out IAudioClient client))
-        {
-            //await Log(LogSeverity.Debug, $"Starting playback of {path} in {guild.Name}");
-            var output = CreateStream(path).StandardOutput.BaseStream;
-            var stream = client.CreatePCMStream(AudioApplication.Music);
-            await output.CopyToAsync(stream);
-            await stream.FlushAsync().ConfigureAwait(false);
-        }
-    }
+            if (!_disconnectTokens.TryGetValue(arg.Player.VoiceChannel.Id, out var value))
+            {
+                return;
+            }
 
-    private Process CreateStream(string path)
-    {
-        return Process.Start(new ProcessStartInfo
+            if (value.IsCancellationRequested)
+            {
+                return;
+            }
+
+            value.Cancel(true);
+            await arg.Player.TextChannel.SendMessageAsync("Auto disconnect has been cancelled!");
+        }
+
+        private async Task OnTrackEnded(TrackEndedEventArgs args)
         {
-            FileName = "ffmpeg.exe",
-            Arguments = $"-hide_banner -loglevel panic -i \"{path}\" -ac 2 -f s16le -ar 48000 pipe:1",
-            UseShellExecute = false,
-            RedirectStandardOutput = true
-        });
+            if (!args.Reason.ShouldPlayNext())
+            {
+                return;
+            }
+
+            var player = args.Player;
+            if (!player.Queue.TryDequeue(out var queueable))
+            {
+                await player.TextChannel.SendMessageAsync("Fronta pesničiek bola dokonečná. Pridaj niečo zaujímavé!");
+                _ = InitiateDisconnectAsync(args.Player, TimeSpan.FromSeconds(10));
+                return;
+            }
+
+            if (!(queueable is LavaTrack track))
+            {
+                await player.TextChannel.SendMessageAsync("Next item in queue is not a track.");
+                return;
+            }
+
+            await args.Player.PlayAsync(track);
+            await args.Player.TextChannel.SendMessageAsync(
+                $"{args.Reason}: {args.Track.Title}\nNow playing: {track.Title}");
+        }
+
+        private async Task InitiateDisconnectAsync(LavaPlayer player, TimeSpan timeSpan)
+        {
+            if (!_disconnectTokens.TryGetValue(player.VoiceChannel.Id, out var value))
+            {
+                value = new CancellationTokenSource();
+                _disconnectTokens.TryAdd(player.VoiceChannel.Id, value);
+            }
+            else if (value.IsCancellationRequested)
+            {
+                _disconnectTokens.TryUpdate(player.VoiceChannel.Id, new CancellationTokenSource(), value);
+                value = _disconnectTokens[player.VoiceChannel.Id];
+            }
+
+            await player.TextChannel.SendMessageAsync($"Auto disconnect initiated! Disconnecting in {timeSpan}...");
+            var isCancelled = SpinWait.SpinUntil(() => value.IsCancellationRequested, timeSpan);
+            if (isCancelled)
+            {
+                return;
+            }
+
+            await _lavaNode.LeaveAsync(player.VoiceChannel);
+        }
+
+        private async Task OnTrackException(TrackExceptionEventArgs arg)
+        {
+            _logger.LogError($"Track {arg.Track.Title} threw an exception. Please check Lavalink console/logs.");
+            arg.Player.Queue.Enqueue(arg.Track);
+            await arg.Player.TextChannel?.SendMessageAsync(
+                $"{arg.Track.Title} has been re-added to queue after throwing an exception.");
+        }
+
+        private async Task OnTrackStuck(TrackStuckEventArgs arg)
+        {
+            _logger.LogError(
+                $"Track {arg.Track.Title} got stuck for {arg.Threshold}ms. Please check Lavalink console/logs.");
+            arg.Player.Queue.Enqueue(arg.Track);
+            await arg.Player.TextChannel?.SendMessageAsync(
+                $"{arg.Track.Title} has been re-added to queue after getting stuck.");
+        }
+
+        private Task OnWebSocketClosed(WebSocketClosedEventArgs arg)
+        {
+            _logger.LogCritical($"Discord WebSocket connection closed with following reason: {arg.Reason}");
+            return Task.CompletedTask;
+        }
     }
 }
