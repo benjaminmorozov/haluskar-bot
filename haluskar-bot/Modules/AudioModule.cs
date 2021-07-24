@@ -58,6 +58,15 @@ namespace haluskar_bot.Modules {
         public async Task PlayAsync([Remainder] string query)
         {
             _player = _lavaNode.GetPlayer(Context.Guild);
+            if(_player == null)
+            {
+                var user = (SocketGuildUser)Context.User;
+                var voiceChannel = user.VoiceChannel;
+                await voiceChannel.ConnectAsync();
+                await _lavaNode.ConnectAsync();
+                await _lavaNode.JoinAsync(voiceChannel, textChannel: (ITextChannel)Context.Channel);
+            }
+
             var search = await _lavaNode.SearchYouTubeAsync(query);
             if (search.LoadStatus == LoadStatus.NoMatches ||
                 search.LoadStatus == LoadStatus.LoadFailed)

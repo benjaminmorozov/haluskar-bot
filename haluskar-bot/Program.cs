@@ -32,7 +32,6 @@ namespace haluskar_bot
                 _logLevel = args[0];
             }
             Log.Logger = new LoggerConfiguration()
-                 .WriteTo.File("haluskar.log", rollingInterval: RollingInterval.Day)
                  .WriteTo.Console()
                  .CreateLogger();
             new Program().MainAsync().GetAwaiter().GetResult();
