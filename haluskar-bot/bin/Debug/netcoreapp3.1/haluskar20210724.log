@@ -383,6 +383,7 @@
 2021-07-24 20:12:14.754 +02:00 [INF] Lavalink has been up for 00:00:00.1189930.
 2021-07-24 20:13:14.847 +02:00 [INF] Lavalink has been up for 00:00:00.1249930.
 2021-07-24 20:14:14.744 +02:00 [INF] Lavalink has been up for 00:00:00.1309921.
+<<<<<<< HEAD
 2021-07-24 18:56:07.228 +00:00 [INF] Discord.Net v2.4.0 (API v6)
 2021-07-24 18:56:09.588 +00:00 [INF] Connecting
 2021-07-24 18:56:10.333 +00:00 [INF] Connected
@@ -396,6 +397,15 @@
 2021-07-24 19:00:34.773 +00:00 [INF] We are on 1 server/s
 2021-07-24 19:00:34.773 +00:00 [INF] Ready
 2021-07-24 19:00:38.482 +00:00 [ERR] Discord.Commands.CommandException: Error occurred executing "Play" for Andromatic#6161 in ♥ Halušky 2.0 ♥/𝓟𝓞𝓒𝓞𝓛𝓞𝓒𝓞🎶.
+=======
+2021-07-24 21:02:49.905 +02:00 [INF] Discord.Net v2.4.0 (API v6)
+2021-07-24 21:02:51.137 +02:00 [INF] Connecting
+2021-07-24 21:02:52.165 +02:00 [INF] Connected
+2021-07-24 21:02:52.681 +02:00 [INF] Logged in as Haluškár#6046
+2021-07-24 21:02:52.683 +02:00 [INF] We are on 1 server/s
+2021-07-24 21:02:52.684 +02:00 [INF] Ready
+2021-07-24 21:02:57.022 +02:00 [ERR] Discord.Commands.CommandException: Error occurred executing "Play" for Andromatic#6161 in ♥ Halušky 2.0 ♥/haluskar-test.
+>>>>>>> ef37bf9b822c83451d7c819ea40495d83d49e547
  ---> System.Collections.Generic.KeyNotFoundException: The given key '751501391327133767' was not present in the dictionary.
    at System.Collections.Concurrent.ConcurrentDictionary`2.ThrowKeyNotFoundException(Object key)
    at System.Collections.Concurrent.ConcurrentDictionary`2.get_Item(TKey key)
@@ -405,3 +415,100 @@
 --- End of stack trace from previous location where exception was thrown ---
    at Discord.Commands.CommandInfo.ExecuteInternalAsync(ICommandContext context, Object[] args, IServiceProvider services)
    --- End of inner exception stack trace ---
+<<<<<<< HEAD
+=======
+2021-07-24 21:05:16.915 +02:00 [INF] Discord.Net v2.4.0 (API v6)
+2021-07-24 21:05:17.832 +02:00 [INF] Connecting
+2021-07-24 21:05:18.720 +02:00 [INF] Connected
+2021-07-24 21:05:19.223 +02:00 [INF] Logged in as Haluškár#6046
+2021-07-24 21:05:19.226 +02:00 [INF] We are on 1 server/s
+2021-07-24 21:05:19.226 +02:00 [INF] Ready
+2021-07-24 21:05:24.513 +02:00 [INF] Connecting
+2021-07-24 21:05:24.797 +02:00 [WRN] Unknown OpCode (Hello)
+2021-07-24 21:05:24.997 +02:00 [INF] Connected
+2021-07-24 21:05:25.307 +02:00 [INF] Command h!join executed for Andromatic#6161 on ♥ Halušky 2.0 ♥
+2021-07-24 21:05:25.486 +02:00 [ERR] Discord.Commands.CommandException: Error occurred executing "Play" for Andromatic#6161 in ♥ Halušky 2.0 ♥/haluskar-test.
+ ---> System.Collections.Generic.KeyNotFoundException: The given key '751501391327133767' was not present in the dictionary.
+   at System.Collections.Concurrent.ConcurrentDictionary`2.ThrowKeyNotFoundException(Object key)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.get_Item(TKey key)
+   at Victoria.LavaNode`1.GetPlayer(IGuild guild)
+   at haluskar_bot.Modules.AudioModule.PlayAsync(String query) in C:\Users\ssosta\source\repos\haluskar-bot\haluskar-bot\Modules\AudioModule.cs:line 60
+   at Discord.Commands.ModuleClassBuilder.<>c__DisplayClass6_0.<<BuildCommand>g__ExecuteCallback|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Discord.Commands.CommandInfo.ExecuteInternalAsync(ICommandContext context, Object[] args, IServiceProvider services)
+   --- End of inner exception stack trace ---
+2021-07-24 21:05:26.144 +02:00 [INF] Lavalink has been up for 00:00:00.0241125.
+2021-07-24 21:05:33.948 +02:00 [INF] Discord.Net v2.4.0 (API v6)
+2021-07-24 21:05:34.839 +02:00 [INF] Connecting
+2021-07-24 21:05:36.588 +02:00 [INF] Connected
+2021-07-24 21:05:37.091 +02:00 [INF] Logged in as Haluškár#6046
+2021-07-24 21:05:37.093 +02:00 [INF] We are on 1 server/s
+2021-07-24 21:05:37.093 +02:00 [INF] Ready
+2021-07-24 21:05:42.273 +02:00 [INF] Connecting
+2021-07-24 21:05:42.514 +02:00 [WRN] Unknown OpCode (Hello)
+2021-07-24 21:05:42.739 +02:00 [INF] Connected
+2021-07-24 21:05:42.970 +02:00 [INF] Disconnecting
+2021-07-24 21:05:43.010 +02:00 [INF] Command h!join executed for Andromatic#6161 on ♥ Halušky 2.0 ♥
+2021-07-24 21:05:43.778 +02:00 [INF] Lavalink has been up for 00:00:00.0258760.
+2021-07-24 21:05:46.493 +02:00 [INF] Track update received for Fitz and the Tantrums - HandClap [Official Video]: 00:00:00
+2021-07-24 21:05:46.495 +02:00 [INF] Track update received for Fitz and the Tantrums - HandClap [Official Video]: 00:00:00
+2021-07-24 21:05:46.831 +02:00 [INF] Command h!play handclap executed for Andromatic#6161 on ♥ Halušky 2.0 ♥
+2021-07-24 21:05:51.489 +02:00 [INF] Track update received for Fitz and the Tantrums - HandClap [Official Video]: 00:00:02.8000000
+2021-07-24 21:06:01.470 +02:00 [INF] Discord.Net v2.4.0 (API v6)
+2021-07-24 21:06:02.416 +02:00 [INF] Connecting
+2021-07-24 21:06:03.336 +02:00 [INF] Connected
+2021-07-24 21:06:03.849 +02:00 [INF] Logged in as Haluškár#6046
+2021-07-24 21:06:03.850 +02:00 [INF] We are on 1 server/s
+2021-07-24 21:06:03.851 +02:00 [INF] Ready
+2021-07-24 21:06:07.463 +02:00 [ERR] Command failed to execute for Andromatic#6161 <-> Unknown command.
+2021-07-24 21:06:09.126 +02:00 [INF] Connecting
+2021-07-24 21:06:09.415 +02:00 [WRN] Unknown OpCode (Hello)
+2021-07-24 21:06:09.639 +02:00 [INF] Connected
+2021-07-24 21:06:09.879 +02:00 [INF] Disconnecting
+2021-07-24 21:06:09.918 +02:00 [INF] Command h!join executed for Andromatic#6161 on ♥ Halušky 2.0 ♥
+2021-07-24 21:06:10.369 +02:00 [INF] Lavalink has been up for 00:00:00.0285667.
+2021-07-24 21:06:11.609 +02:00 [INF] Track update received for Fitz and the Tantrums - HandClap [Official Video]: 00:00:00
+2021-07-24 21:06:11.611 +02:00 [INF] Track update received for Fitz and the Tantrums - HandClap [Official Video]: 00:00:00
+2021-07-24 21:06:11.902 +02:00 [INF] Command h!play handclap executed for Andromatic#6161 on ♥ Halušky 2.0 ♥
+2021-07-24 21:06:16.605 +02:00 [INF] Track update received for Fitz and the Tantrums - HandClap [Official Video]: 00:00:04.1800000
+2021-07-24 21:06:21.603 +02:00 [INF] Track update received for Fitz and the Tantrums - HandClap [Official Video]: 00:00:09.1800000
+2021-07-24 21:06:22.989 +02:00 [INF] Track update received for Fitz and the Tantrums - HandClap [Official Video]: 00:00:10.5400000
+2021-07-24 21:06:23.208 +02:00 [INF] Command h!pause executed for Andromatic#6161 on ♥ Halušky 2.0 ♥
+2021-07-24 21:06:25.120 +02:00 [INF] Track update received for Fitz and the Tantrums - HandClap [Official Video]: 00:00:10.5400000
+2021-07-24 21:06:25.368 +02:00 [INF] Command h!resume executed for Andromatic#6161 on ♥ Halušky 2.0 ♥
+2021-07-24 21:06:26.607 +02:00 [INF] Track update received for Fitz and the Tantrums - HandClap [Official Video]: 00:00:12.0400000
+2021-07-24 21:06:31.606 +02:00 [INF] Track update received for Fitz and the Tantrums - HandClap [Official Video]: 00:00:17.0400000
+2021-07-24 21:06:32.888 +02:00 [INF] Command h!skip executed for Andromatic#6161 on ♥ Halušky 2.0 ♥
+2021-07-24 21:06:36.602 +02:00 [INF] Track update received for Fitz and the Tantrums - HandClap [Official Video]: 00:00:22.0400000
+2021-07-24 21:06:40.885 +02:00 [INF] Command h!play tukan tuk tuk executed for Andromatic#6161 on ♥ Halušky 2.0 ♥
+2021-07-24 21:06:41.598 +02:00 [INF] Track update received for Fitz and the Tantrums - HandClap [Official Video]: 00:00:27.0400000
+2021-07-24 21:06:42.624 +02:00 [INF] Command h!skip executed for Andromatic#6161 on ♥ Halušky 2.0 ♥
+2021-07-24 21:06:46.101 +02:00 [ERR] Command failed to execute for Andromatic#6161 <-> Unknown command.
+2021-07-24 21:06:46.601 +02:00 [INF] Track update received for Fitz and the Tantrums - HandClap [Official Video]: 00:00:32.0400000
+2021-07-24 21:06:51.597 +02:00 [INF] Track update received for Fitz and the Tantrums - HandClap [Official Video]: 00:00:37.0200000
+2021-07-24 21:07:56.014 +02:00 [INF] Discord.Net v2.4.0 (API v6)
+2021-07-24 21:07:57.155 +02:00 [INF] Connecting
+2021-07-24 21:07:58.257 +02:00 [INF] Connected
+2021-07-24 21:07:58.781 +02:00 [INF] Logged in as Haluškár#6046
+2021-07-24 21:07:58.784 +02:00 [INF] We are on 1 server/s
+2021-07-24 21:07:58.785 +02:00 [INF] Ready
+2021-07-24 21:08:02.965 +02:00 [INF] Command h!purge 15 executed for Andromatic#6161 on ♥ Halušky 2.0 ♥
+2021-07-24 21:08:06.713 +02:00 [INF] Command h!purge 7 executed for Andromatic#6161 on ♥ Halušky 2.0 ♥
+2021-07-24 21:08:14.872 +02:00 [INF] Connecting
+2021-07-24 21:08:15.120 +02:00 [WRN] Unknown OpCode (Hello)
+2021-07-24 21:08:15.340 +02:00 [INF] Connected
+2021-07-24 21:08:15.578 +02:00 [INF] Disconnecting
+2021-07-24 21:08:15.621 +02:00 [INF] Command h!join executed for Andromatic#6161 on ♥ Halušky 2.0 ♥
+2021-07-24 21:08:16.274 +02:00 [INF] Lavalink has been up for 00:00:00.0411366.
+2021-07-24 21:08:17.371 +02:00 [INF] Track update received for Fitz and the Tantrums - HandClap [Official Video]: 00:00:00
+2021-07-24 21:08:17.373 +02:00 [INF] Track update received for Fitz and the Tantrums - HandClap [Official Video]: 00:00:00
+2021-07-24 21:08:17.605 +02:00 [INF] Command h!play handclap executed for Andromatic#6161 on ♥ Halušky 2.0 ♥
+2021-07-24 21:08:18.973 +02:00 [INF] Command h!fs executed for Andromatic#6161 on ♥ Halušky 2.0 ♥
+2021-07-24 21:08:22.374 +02:00 [INF] Track update received for Fitz and the Tantrums - HandClap [Official Video]: 00:00:04.3800000
+2021-07-24 21:08:25.020 +02:00 [INF] Command h!play tukan tuk tuk executed for Andromatic#6161 on ♥ Halušky 2.0 ♥
+2021-07-24 21:08:25.788 +02:00 [INF] Track update received for Daler Mehndi - Tunak Tunak Tun Video: 00:00:00
+2021-07-24 21:08:25.789 +02:00 [INF] Track update received for Daler Mehndi - Tunak Tunak Tun Video: 00:00:00
+2021-07-24 21:08:26.052 +02:00 [INF] Command h!fs executed for Andromatic#6161 on ♥ Halušky 2.0 ♥
+2021-07-24 21:08:29.701 +02:00 [FTL] Discord WebSocket connection closed with following reason: 
+2021-07-24 21:08:29.975 +02:00 [INF] Command h!leave executed for Andromatic#6161 on ♥ Halušky 2.0 ♥
+>>>>>>> ef37bf9b822c83451d7c819ea40495d83d49e547
