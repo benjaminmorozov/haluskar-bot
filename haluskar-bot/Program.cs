@@ -18,7 +18,6 @@ namespace haluskar_bot
 {
     class Program
     {
-        public static string _dayOfWeek;
         private DiscordSocketClient _client;
         private IConfiguration _config;
         private static string _logLevel;
@@ -39,7 +38,6 @@ namespace haluskar_bot
 
         async Task MainAsync()
         {
-            _dayOfWeek = DateTime.Now.ToString("dddd", new CultureInfo("sk-SK"));
             // We bind the Discord Socket Client to the _client variable and bind the Log event to the Task Log().
             _client = new DiscordSocketClient(new DiscordSocketConfig
             {
@@ -77,7 +75,7 @@ namespace haluskar_bot
                 .AddSingleton<LavaNode>()
                 .AddSingleton<LavaConfig>()
                 .AddLavaNode(x => {
-                    x.SelfDeaf = false;
+                    x.SelfDeaf = true;
                 })
                 .AddLogging(configure => configure.AddSerilog());
 
