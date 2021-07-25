@@ -74,7 +74,7 @@ namespace haluskar_bot.Services
             }
 
             // failure scenario, let's let the user know
-            await context.Channel.SendMessageAsync($"Sorry, ... something went wrong -> [");
+            await context.Channel.SendMessageAsync($"Sorry, something went wrong -> [{result.ErrorReason}]");
         }
     }
 }

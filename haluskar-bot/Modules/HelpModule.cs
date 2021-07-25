@@ -55,12 +55,6 @@ namespace haluskar_bot.Modules
             });
             builder.AddField(x =>
             {
-                x.Name = CommandHandler._prefix + "rozvrh `[optional day]`";
-                x.Value = "- zobrazí rozvrh hodín na dnes/zadaný deň.";
-                x.IsInline = false;
-            });
-            builder.AddField(x =>
-            {
                 x.Name = CommandHandler._prefix + "set `[prefix]` `[value]`";
                 x.Value = "⚙️ - nastaví zvolenú premennú pre bota.";
                 x.IsInline = false;
