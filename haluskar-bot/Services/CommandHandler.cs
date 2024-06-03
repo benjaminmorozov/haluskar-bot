@@ -46,8 +46,25 @@ namespace haluskar_bot.Services
             if (!(rawMessage is SocketUserMessage message)) return;
             if (message.Source != MessageSource.User) return;
 
+            _logger.LogInformation($"Received message: {message.Content}");
+
             int argPos = 0;
-            if (!message.HasMentionPrefix(_client.CurrentUser, ref argPos) && !message.HasStringPrefix(_prefix, ref argPos)) return;
+            // Check if the message has a mention prefix
+            if (message.HasMentionPrefix(_client.CurrentUser, ref argPos))
+            {
+                _logger.LogInformation("Message has mention prefix.");
+            }
+            // Check if the message has the configured string prefix
+            else if (message.HasStringPrefix(_prefix, ref argPos))
+            {
+                _logger.LogInformation("Message has string prefix.");
+            }
+            // If neither prefix is found, return
+            else
+            {
+                _logger.LogInformation("Message does not have a valid prefix.");
+                return;
+            }
 
             var context = new SocketCommandContext(_client, message);
             var result = await _commands.ExecuteAsync(context, argPos, _services);

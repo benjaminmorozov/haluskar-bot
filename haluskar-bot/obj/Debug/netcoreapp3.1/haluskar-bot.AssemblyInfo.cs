@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("haluskar-bot")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b39de364a289339a3668399fd9db791bf4c58e80")]
 [assembly: System.Reflection.AssemblyProductAttribute("haluskar-bot")]
 [assembly: System.Reflection.AssemblyTitleAttribute("haluskar-bot")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -13,6 +13,7 @@ using Serilog;
 using System.Globalization;
 using Victoria;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
 
 namespace haluskar_bot
 {
@@ -41,7 +42,8 @@ namespace haluskar_bot
             // We bind the Discord Socket Client to the _client variable and bind the Log event to the Task Log().
             _client = new DiscordSocketClient(new DiscordSocketConfig
             {
-                ExclusiveBulkDelete = true // raise only MessagesBulkDeleted
+                //ExclusiveBulkDelete = true // raise only MessagesBulkDeleted
+                GatewayIntents = GatewayIntents.AllUnprivileged | GatewayIntents.MessageContent
             });
 
             //Create the configuration
@@ -54,7 +56,7 @@ namespace haluskar_bot
             var services = ConfigureServices();
             await services.GetRequiredService<CommandHandler>().InitializeAsync(_config["prefix"]);
             services.GetRequiredService<LoggingService>();
-            await services.GetRequiredService<CommandHandler>().InitializeAsync(_config["prefix"]);
+            services.GetRequiredService<CommandHandler>().InitializeAsync(_config["prefix"]);
             await _client.LoginAsync(TokenType.Bot, _config["token"]);
             await _client.StartAsync();
             await _client.SetGameAsync(_config["prefix"]);
@@ -71,12 +73,6 @@ namespace haluskar_bot
                 .AddSingleton<CommandService>()
                 .AddSingleton<CommandHandler>()
                 .AddSingleton<LoggingService>()
-                .AddSingleton<AudioService>()
-                .AddSingleton<LavaNode>()
-                .AddSingleton<LavaConfig>()
-                .AddLavaNode(x => {
-                    x.SelfDeaf = true;
-                })
                 .AddLogging(configure => configure.AddSerilog());
 
             if (!string.IsNullOrEmpty(_logLevel))
